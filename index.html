@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>ShoePredict — Price Prediction</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+<header class="topbar">
+    <div class="brand"><span class="dot"></span> ShoePredict</div>
+    <nav class="nav">
+        <a href="/dashboard" class="nav-item">Dashboard</a>
+        <a href="/" class="nav-item active">Home</a>
+        <a href="/history" class="nav-item">History</a>
+        <a href="/login" class="nav-item">Login</a>
+    </nav>
+</header>
+
+<main style="padding:40px;">
+
+    <div class="glass-card" style="display:flex; flex-wrap:wrap; gap:25px;">
+
+        <div style="flex:1; min-width:260px;">
+            <h1 style="color:#00eaff;">Shoe Price Prediction</h1>
+            <p style="color:#95a2b8;">Enter shoe details and get predicted price in USD & INR</p>
+        </div>
+
+        <form method="post" style="flex:1; min-width:260px;">
+            <input type="text" name="brand" placeholder="Brand" required>
+            <input type="text" name="model" placeholder="Model">
+            <input type="text" name="type" placeholder="Type" required>
+            <input type="text" name="material" placeholder="Material">
+            <input type="text" name="color" placeholder="Color">
+
+            <select name="gender" required>
+                <option value="" disabled selected>Select Gender</option>
+                <option value="Male">Male</option>
+                <option value="Female">Female</option>
+                <option value="Female">Other</option>
+            </select>
+
+            <input name="size" type="text" placeholder="Size" required>
+
+            <button type="submit" class="btn">Predict</button>
+        </form>
+
+        <div style="flex:1; min-width:260px;">
+            <h2 style="color:#00eaff;">Predicted Price </h2>
+
+            <div class="glass-card" style="padding:20px; text-align:center;">
+
+                <!-- USD Price with $ added -->
+                <div style="font-size:30px; color:#00eaff;">
+                    {% if price %} ${{ price }} {% else %} — {% endif %}
+                </div>
+
+                <!-- INR Price -->
+                <div style="font-size:22px; color:#9eefff;">
+                    {% if price_inr %} ₹{{ price_inr }} {% endif %}
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+
+</main>
+
+</body>
+</html>

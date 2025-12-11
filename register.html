@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Register | ShoePredict</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand"><span class="dot"></span> ShoePredict</div>
+    <nav class="nav">
+        <a href="/dashboard" class="nav-item">Dashboard</a>
+        <a href="/" class="nav-item">Prediction</a>
+        <a href="/history" class="nav-item">History</a>
+        <a href="/register" class="nav-item active">Register</a>
+    </nav>
+</header>
+
+<div class="auth-container">
+    <div class="glass-card">
+
+        <h2 class="auth-title">Create Account</h2>
+
+        {% if error %}
+        <p class="error-msg">{{ error }}</p>
+        {% endif %}
+
+        <form action="/register" method="POST">
+            <input type="text" name="name" placeholder="Full Name" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <input type="password" name="password" placeholder="Password" required>
+            <input type="password" name="confirm_password" placeholder="Confirm Password" required>
+            <button type="submit" class="btn">Register</button>
+        </form>
+
+        <p class="auth-link">
+            Already have an account? <a href="/login">Login</a>
+        </p>
+
+    </div>
+</div>
+
+</body>
+</html>

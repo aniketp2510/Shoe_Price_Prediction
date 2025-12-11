@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prediction History</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand"><span class="dot"></span> ShoePredict</div>
+    <nav class="nav">
+        <a href="/dashboard" class="nav-item">Dashboard</a>
+        <a href="/" class="nav-item">Prediction</a>
+        <a href="/history" class="nav-item active">History</a>
+    </nav>
+</header>
+
+<div style="padding:40px;">
+    <h1 style="color:#00eaff;">Prediction History</h1>
+
+    <table class="table-glass" style="width:100%; border-collapse:collapse;">
+        <tr style="border-bottom:1px solid rgba(0,255,255,0.2);">
+            <th>ID</th>
+            <th>Gender</th>
+            <th>Size</th>
+            <th>Model</th>
+            <th>Color</th>
+            <th>Brand</th>
+            <th>Type</th>
+            <th>Material</th>
+            <th>USD</th>
+            <th>INR</th>
+            <th>Created</th>
+            <th>Action</th>
+        </tr>
+        {% for item in history %}
+        <tr>
+            <td>{{ item[0] }}</td>
+            <td>{{ item[1] }}</td>
+            <td>{{ item[2] }}</td>
+            <td>{{ item[3] }}</td>
+            <td>{{ item[4] }}</td>
+            <td>{{ item[5] }}</td>
+            <td>{{ item[6] }}</td>
+            <td>{{ item[7] }}</td>
+            <td style="color:#00eaff;">${{ item[8] }}</td>
+            <td style="color:#9eefff;">₹{{ item[9] }}</td>
+            <td>{{ item[10] }}</td>
+            <td>
+                <form method="POST" action="/delete/{{ item[0] }}">
+                    <button class="btn" style="padding:6px 12px;font-size:14px;">Delete</button>
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+
+    <div style="margin-top:20px;">
+        <form action="/delete_all" method="POST" style="display:inline;">
+            <button class="btn">Delete All</button>
+        </form>
+        <a href="/dashboard" class="btn">Back</a>
+    </div>
+</div>
+
+</body>
+</html>

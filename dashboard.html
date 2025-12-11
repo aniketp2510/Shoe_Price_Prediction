@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShoePredict — Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+<body>
+
+<header class="topbar">
+    <div class="brand"><span class="dot"></span> ShoePredict</div>
+    <nav class="nav">
+        <a href="/dashboard" class="nav-item active">Dashboard</a>
+        <a href="/" class="nav-item">Prediction</a>
+        <a href="/history" class="nav-item">History</a>
+        <a href="/export_pdf" class="nav-item">Export PDF</a>
+    </nav>
+</header>
+
+<div style="padding:40px;">
+    <h1 style="color:#00eaff;">Welcome, Aniket 👋</h1>
+    <p style="color:#95a2b8;">Your smart dashboard for shoe prediction insights.</p>
+
+    <div class="dashboard-grid">
+        <div class="dashboard-card"><h3>Total Predictions</h3><div class="stat-value">{{ total_predictions }}</div></div>
+        <div class="dashboard-card"><h3>Highest Price</h3><div class="stat-value">${{ highest_price }}</div></div>
+        <div class="dashboard-card"><h3>Lowest Price</h3><div class="stat-value">${{ lowest_price }}</div></div>
+        <div class="dashboard-card"><h3>Average Price</h3><div class="stat-value">${{ avg_price }}</div></div>
+
+        {% if latest %}
+        <div class="dashboard-card">
+            <h3>Latest Prediction</h3>
+            <div class="stat-value">{{ latest[0] }} — ${{ latest[1] }}</div>
+            <div class="stat-label">₹{{ latest[2] }} • {{ latest[3] }}</div>
+        </div>
+        {% endif %}
+    </div>
+
+    <div style="margin-top:35px;">
+        <a href="/" class="btn">Start Prediction</a>
+        <a href="/history" class="btn">View History</a>
+    </div>
+</div>
+
+</body>
+</html>

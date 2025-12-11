@@ -1,0 +1,212 @@
+/* ==============================
+   THEME COLORS
+================================= */
+:root {
+  --bg:#0d1117;
+  --card:#111820;
+  --muted:#95a2b8;
+  --accent1:#00eaff;
+  --accent2:#00b8ff;
+  --input-bg: rgba(0, 255, 255, 0.05);
+}
+
+/* ==============================
+   GLOBAL
+================================= */
+* {
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  background:
+    radial-gradient(1000px 500px at 10% 20%, rgba(0, 204, 255, 0.12), transparent),
+    radial-gradient(900px 400px at 90% 80%, rgba(0, 255, 200, 0.10), transparent),
+    var(--bg);
+  color: #eaeaea;
+}
+
+/* ==============================
+   TOP BAR
+================================= */
+.topbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 18px 56px;
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: 700;
+}
+
+.brand .dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--accent1);
+}
+
+.nav {
+  display: flex;
+  gap: 22px;
+  align-items: center;
+}
+
+.nav-item {
+  color: #bcd6e8;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.nav-item.active {
+  background: rgba(0, 255, 255, 0.12);
+  padding: 8px 14px;
+  border-radius: 8px;
+  color: #6cd8b8;
+}
+
+/* ==============================
+   GLASS CARD
+================================= */
+.glass-card {
+  background: rgba(255,255,255,0.04);
+  border-radius: 18px;
+  padding: 28px;
+  box-shadow: 
+    0 20px 60px rgba(0, 255, 255, 0.05),
+    inset 0 1px 0 rgba(255,255,255,0.04);
+  border: 1px solid rgba(0,255,255,0.15);
+}
+
+/* ==============================
+   BUTTONS
+================================= */
+.btn {
+  padding: 12px 22px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 700;
+  background: linear-gradient(90deg, var(--accent1), var(--accent2));
+  color: #000;
+  font-size: 16px;
+  cursor: pointer;
+  box-shadow: 0 8px 24px rgba(0,255,255,0.30);
+  text-decoration: none;
+  display: inline-block;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  transition: 0.2s;
+}
+
+/* ==============================
+   INPUT FIELDS
+================================= */
+input, select {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 10px;
+  border: 1px solid rgba(0,255,255,0.15);
+  background: var(--input-bg);
+  color: #d0ffe8;
+  font-size: 14px;
+  margin-bottom: 15px;
+  outline: none;
+}
+
+/* ==============================
+   LOGIN / REGISTER PAGE CONTAINER
+================================= */
+.auth-container {
+  max-width: 420px;
+  margin: 70px auto;
+}
+
+/* Titles */
+.auth-title {
+  text-align: center;
+  color: var(--accent1);
+  margin-bottom: 20px;
+  font-size: 26px;
+  font-weight: 600;
+}
+
+/* Error Message */
+.error-msg {
+  color: #ff6d6d;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+/* Links */
+.auth-link {
+  text-align: center;
+  font-size: 14px;
+  color: #bcd6e8;
+}
+
+.auth-link a {
+  color: var(--accent1);
+  text-decoration: none;
+}
+
+.auth-link a:hover {
+  text-decoration: underline;
+}
+
+/* ==============================
+   DASHBOARD GRID
+================================= */
+.dashboard-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  margin-top: 40px;
+}
+
+.dashboard-card {
+  background: rgba(255,255,255,0.04);
+  padding: 24px;
+  border-radius: 16px;
+  box-shadow: 0 15px 50px rgba(0,255,255,0.12);
+  text-align: center;
+  border: 1px solid rgba(0,255,255,0.15);
+}
+
+.dashboard-card h3 {
+  color: var(--accent1);
+  font-size: 22px;
+  margin: 10px 0;
+}
+
+.stat-value {
+  font-size: 32px;
+  font-weight: 700;
+  color: var(--accent1);
+  margin-top: 10px;
+}
+
+.stat-label {
+  color: #aab895;
+  font-size: 14px;
+}
+
+/* ======================================================
+   🔥 DROPDOWN FIX (added as requested — nothing else changed)
+======================================================= */
+select option {
+  background-color: #0d1117 !important;  /* dark theme background */
+  color: #d0ffe8 !important;             /* readable neon text */
+}
+
+select option:hover {
+  background-color: #112128 !important;  /* subtle dark hover */
+  color: #00eaff !important;             /* neon highlight */
+}
