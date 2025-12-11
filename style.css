@@ -199,7 +199,7 @@ input, select {
 }
 
 /* ======================================================
-   🔥 DROPDOWN FIX (added as requested — nothing else changed)
+   🔥 DROPDOWN Theme
 ======================================================= */
 select option {
   background-color: #0d1117 !important;  /* dark theme background */
@@ -210,3 +210,4 @@ select option:hover {
   background-color: #112128 !important;  /* subtle dark hover */
   color: #00eaff !important;             /* neon highlight */
 }
+
